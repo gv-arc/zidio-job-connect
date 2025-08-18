@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ZIDIO Connect — Internships & Jobs</title>
+<style>
+  :root{--bg:#0b1020;--card:#121834;--pri:#4c7dff;--txt:#e8ecff;--mut:#a8b0d9;--ok:#27ae60;--warn:#f39c12;}
+  *{box-sizing:border-box} html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+  body{background:linear-gradient(180deg,#0b1020,#0e1430 40%,#0b1020);color:var(--txt)}
+  a{color:inherit;text-decoration:none}
+  .nav{position:sticky;top:0;z-index:3;backdrop-filter:saturate(140%) blur(8px);background:#0b1020cc;border-bottom:1px solid #2a3160}
+  .nav-inner{max-width:1100px;margin:auto;display:flex;align-items:center;gap:20px;padding:12px 16px}
+  .brand{font-weight:700;letter-spacing:.5px}
+  .nav a{opacity:.9} .nav a:hover{opacity:1}
+  .spacer{flex:1}
+  .btn{display:inline-block;padding:10px 16px;border:1px solid #2a3160;border-radius:10px}
+  .btn.primary{background:var(--pri);border-color:var(--pri);color:#fff}
+  .hero{max-width:1100px;margin:48px auto;padding:0 16px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px}
+  .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.1;margin:0 0 12px}
+  .hero p{color:var(--mut);margin:0 0 22px}
+  .card{background:var(--card);border:1px solid #1d2450;border-radius:16px;padding:18px}
+  .grid{max-width:1100px;margin:20px auto;padding:0 16px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+  .kpi{background:#0f1533;border:1px solid #242a55;border-radius:12px;padding:14px;text-align:center}
+  .kpi b{font-size:20px;display:block;margin-bottom:6px}
+  .footer{max-width:1100px;margin:40px auto;padding:16px;color:#aab2df;border-top:1px solid #2a3160;text-align:center}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">ZIDIO <span style="color:var(--pri)">CONNECT</span></div>
+      <a href="index.html">Home</a>
+      <a href="jobs.html">Opportunities</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+      <div class="spacer"></div>
+      <a class="btn" href="#features">Features</a>
+      <a class="btn primary" href="login.html">Get Started</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="card">
+      <h1>Internship & Job Management Portal</h1>
+      <p>Connect students and recruiters, manage applications, and streamline hiring — all in one place.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn primary" href="signup.html">Create Account</a>
+        <a class="btn" href="login.html">I already have an account</a>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><b>2,300+</b><span>Students</span></div>
+        <div class="kpi"><b>140+</b><span>Recruiters</span></div>
+        <div class="kpi"><b>780+</b><span>Open Roles</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 12px">What you can do</h3>
+      <ul style="margin:0 0 12px 18px;color:var(--mut)">
+        <li>Students: profile, resume upload, apply & track</li>
+        <li>Recruiters: post jobs/internships, shortlist candidates</li>
+        <li>Admins: user approvals, moderation & analytics</li>
+      </ul>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <a class="btn" href="student-dashboard.html">Student Demo</a>
+        <a class="btn" href="recruiter-dashboard.html">Recruiter Demo</a>
+        <a class="btn" href="admin.html">Admin Demo</a>
+        <a class="btn" href="jobs.html">Browse Roles</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="grid">
+    <div class="card">
+      <h3>Authentication</h3>
+      <p class="mut">Role-based login for Students, Recruiters, Admins.</p>
+    </div>
+    <div class="card">
+      <h3>Applications</h3>
+      <p class="mut">Apply, track status, and manage saved roles.</p>
+    </div>
+    <div class="card">
+      <h3>Recruiter Tools</h3>
+      <p class="mut">Post listings, review applicants, shortlist quickly.</p>
+    </div>
+  </section>
+
+  <div class="footer">© 2025 ZIDIO Connect • UI Demo</div>
+</body>
+</html>

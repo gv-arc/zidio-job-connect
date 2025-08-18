@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Opportunities — ZIDIO Connect</title>
+<style>
+  :root{--bg:#0b1020;--card:#121834;--pri:#4c7dff;--txt:#e8ecff;--mut:#9ea8d9}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,Segoe UI,Roboto}
+  .top{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #212957;background:#0b1020;position:sticky;top:0}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px}
+  .filters{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:10px}
+  input,select{width:100%;padding:10px;border-radius:10px;border:1px solid #273066;background:#0f1533;color:#e8ecff}
+  .list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  .card{background:var(--card);border:1px solid #1d2450;border-radius:14px;padding:14px}
+  .btn{padding:8px 12px;border-radius:10px;border:0;background:var(--pri);color:#fff;cursor:pointer}
+  @media(max-width:900px){.list{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+  <div class="top">
+    <a href="index.html">← Home</a>
+    <b>Opportunities</b>
+    <a href="login.html">Login</a>
+  </div>
+
+  <div class="wrap">
+    <div class="filters">
+      <input id="q" placeholder="Search role or company..." oninput="render()" />
+      <select id="type" onchange="render()"><option value="">All Types</option><option>Internship</option><option>Full-time</option></select>
+      <select id="loc" onchange="render()"><option value="">All Locations</option><option>Remote</option><option>Chennai</option><option>Bengaluru</option></select>
+      <select id="sort" onchange="render()"><option value="new">Newest</option><option value="stipend">Highest Stipend</option></select>
+    </div>
+
+    <div id="list" class="list"></div>
+  </div>
+
+<script>
+  const data = [
+    {title:'Java Intern', company:'FinTechCo', type:'Internship', location:'Chennai', stipend:15000, posted:'2025-08-10'},
+    {title:'QA Intern', company:'Qualitix', type:'Internship', location:'Remote', stipend:12000, posted:'2025-08-14'},
+    {title:'Backend Developer', company:'CloudStart', type:'Full-time', location:'Bengaluru', stipend:800000, posted:'2025-08-05'}
+  ];
+  function render(){
+    const q = document.getElementById('q').value.toLowerCase();
+    const type = document.getElementById('type').value;
+    const loc = document.getElementById('loc').value;
+    const sort = document.getElementById('sort').value;
+
+    let rows = data.filter(x =>
+      (!q || x.title.toLowerCase().includes(q) || x.company.toLowerCase().includes(q)) &&
+      (!type || x.type===type) &&
+      (!loc || x.location===loc)
+    );
+    rows.sort((a,b)=>{
+      if(sort==='stipend') return (b.stipend||0)-(a.stipend||0);
+      return new Date(b.posted)-new Date(a.posted);
+    });
+
+    document.getElementById('list').innerHTML = rows.map(x=>`
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <h3 style="margin:0">${x.title}</h3>
+            <div style="opacity:.85">${x.company} • ${x.location} • ${x.type}</div>
+          </div>
+          <button class="btn" onclick="alert('Apply (UI only)')">Apply</button>
+        </div>
+        <div style="margin-top:8px;opacity:.8">Stipend/CTC: ${x.type==='Internship' ? '₹'+x.stipend+'/month' : '₹'+x.stipend+'/year'}</div>
+        <div style="margin-top:6px;opacity:.6">Posted: ${x.posted}</div>
+      </div>
+    `).join('');
+  }
+  render();
+</script>
+</body>
+</html>

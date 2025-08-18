@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Recruiter Dashboard — ZIDIO Connect</title>
+<style>
+  :root{--bg:#0b1020;--side:#0e1430;--card:#121834;--pri:#4c7dff;--txt:#e8ecff;--mut:#9ea8d9}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,Segoe UI,Roboto}
+  .layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+  .side{background:var(--side);border-right:1px solid #212957;padding:16px}
+  .brand{font-weight:800;margin-bottom:16px}
+  .menu a{display:block;padding:10px 12px;border-radius:10px;color:#cfd6ff}
+  .menu a.active,.menu a:hover{background:#11183a}
+  .top{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #212957;background:#0b1020;position:sticky;top:0}
+  .content{padding:16px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .card{background:var(--card);border:1px solid #1d2450;border-radius:14px;padding:14px}
+  input,select,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #273066;background:#0f1533;color:#e8ecff}
+  .btn{padding:10px 14px;border-radius:10px;border:0;background:var(--pri);color:#fff;cursor:pointer}
+  .pill{font-size:12px;border:1px solid #2d366f;border-radius:999px;padding:4px 8px}
+  @media(max-width:980px){.layout{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="side">
+    <div class="brand">Recruiter • <span style="color:var(--pri)">Zidio</span></div>
+    <div class="menu">
+      <a class="active" href="#">Overview</a>
+      <a href="#post">Post Listing</a>
+      <a href="#apps">Applications</a>
+      <a href="index.html">Logout</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="top">
+      <b>Recruiter Dashboard</b>
+      <button class="btn" onclick="document.getElementById('post').scrollIntoView()">+ New Listing</button>
+    </div>
+
+    <div class="content">
+      <div class="grid">
+        <div class="card" id="post">
+          <h3 style="margin:0 0 6px">Post a Job/Internship</h3>
+          <div class="grid" style="grid-template-columns:1fr 1fr">
+            <div>
+              <label>Title</label>
+              <input placeholder="Java Intern" />
+            </div>
+            <div>
+              <label>Type</label>
+              <select><option>Internship</option><option>Full-time</option></select>
+            </div>
+          </div>
+          <div style="margin-top:8px">
+            <label>Description</label>
+            <textarea rows="4" placeholder="Responsibilities, requirements..."></textarea>
+          </div>
+          <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:8px">
+            <div>
+              <label>Location</label>
+              <input placeholder="Remote / On-site" />
+            </div>
+            <div>
+              <label>Stipend/CTC</label>
+              <input placeholder="₹15,000 / month" />
+            </div>
+          </div>
+          <div style="margin-top:10px;display:flex;gap:10px;justify-content:flex-end">
+            <button class="btn" onclick="alert('Posted (UI only)')">Publish</button>
+          </div>
+        </div>
+
+        <div class="card" id="apps">
+          <h3 style="margin:0 0 6px">Recent Applications</h3>
+          <div style="display:grid;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div><b>Aarav</b> • Java Intern <span class="pill">New</span></div>
+              <div style="display:flex;gap:8px">
+                <button class="btn" onclick="alert('Shortlisted')">Shortlist</button>
+                <button class="btn" style="background:#2c2f45" onclick="alert('Rejected')">Reject</button>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div><b>Isha</b> • QA Intern <span class="pill">Under Review</span></div>
+              <div style="display:flex;gap:8px">
+                <button class="btn" onclick="alert('Shortlisted')">Shortlist</button>
+                <button class="btn" style="background:#2c2f45" onclick="alert('Rejected')">Reject</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

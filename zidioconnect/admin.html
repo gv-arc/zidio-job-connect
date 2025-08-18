@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Admin Panel — ZIDIO Connect</title>
+<style>
+  :root{--bg:#0b1020;--side:#0e1430;--card:#121834;--pri:#4c7dff;--txt:#e8ecff}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,Segoe UI,Roboto}
+  .layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+  .side{background:var(--side);border-right:1px solid #212957;padding:16px}
+  .brand{font-weight:800;margin-bottom:16px}
+  .menu a{display:block;padding:10px 12px;border-radius:10px;color:#cfd6ff}
+  .menu a.active,.menu a:hover{background:#11183a}
+  .top{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #212957;background:#0b1020;position:sticky;top:0}
+  .content{padding:16px}
+  .card{background:var(--card);border:1px solid #1d2450;border-radius:14px;padding:14px}
+  table{width:100%;border-collapse:separate;border-spacing:0 8px}
+  th,td{text-align:left;padding:10px 12px;background:#0f1533;border:1px solid #2b3266}
+  th{background:#0e1438}
+  .btn{padding:8px 12px;border-radius:10px;border:0;background:var(--pri);color:#fff;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="side">
+    <div class="brand">Admin • <span style="color:var(--pri)">ZIDIO</span></div>
+    <div class="menu">
+      <a class="active" href="#">Users</a>
+      <a href="#content">Content</a>
+      <a href="#analytics">Analytics</a>
+      <a href="index.html">Logout</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="top"><b>Admin Panel</b></div>
+    <div class="content">
+      <div class="card">
+        <h3 style="margin:0 0 10px">User Management</h3>
+        <table>
+          <thead><tr><th>Name</th><th>Role</th><th>Email</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>Aarav</td><td>Student</td><td>aarav@uni.edu</td><td>Pending</td><td>
+              <button class="btn" onclick="alert('Approved')">Approve</button>
+              <button class="btn" style="background:#2c2f45" onclick="alert('Blocked')">Block</button>
+            </td></tr>
+            <tr><td>Isha</td><td>Recruiter</td><td>isha@firm.com</td><td>Active</td><td>
+              <button class="btn" style="background:#2c2f45" onclick="alert('Blocked')">Block</button>
+            </td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="analytics" class="card" style="margin-top:12px">
+        <h3 style="margin:0 0 6px">Quick Stats</h3>
+        <p>Total Users: 2,440 • Active Listings: 780 • Applications Today: 64</p>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

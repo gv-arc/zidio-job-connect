@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sign Up — ZIDIO Connect</title>
+<style>
+  :root{--bg:#0b1020;--card:#121834;--pri:#4c7dff;--txt:#e8ecff;--mut:#a8b0d9}
+  *{box-sizing:border-box} body{margin:0;min-height:100vh;background:var(--bg);color:var(--txt);font-family:system-ui,Segoe UI,Roboto}
+  .wrap{display:grid;place-items:center;min-height:100vh;padding:16px}
+  .card{width:100%;max-width:640px;background:var(--card);border:1px solid #1d2450;border-radius:16px;padding:22px}
+  h1{margin:0 0 6px} p{margin:0 0 16px;color:var(--mut)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  label{display:block;margin:10px 0 6px;color:#cfd6ff}
+  input,select{width:100%;padding:12px;border-radius:10px;border:1px solid #273066;background:#0f1533;color:var(--txt)}
+  .btn{padding:12px 16px;border-radius:10px;border:0;background:var(--pri);color:#fff;font-weight:600;cursor:pointer}
+  .tabs{display:flex;gap:10px;margin-bottom:10px}
+  .tab{flex:1;padding:10px;border:1px solid #273066;border-radius:10px;text-align:center;background:#0f1533;cursor:pointer}
+  .tab.active{background:var(--pri);border-color:var(--pri)}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Create your account</h1>
+      <p>Select your role and fill the details</p>
+
+      <div class="tabs">
+        <div class="tab active" id="tabStudent" onclick="switchRole('student')">Student</div>
+        <div class="tab" id="tabRecruiter" onclick="switchRole('recruiter')">Recruiter</div>
+      </div>
+
+      <form id="studentForm" onsubmit="event.preventDefault(); location.href='student-dashboard.html';">
+        <div class="grid">
+          <div>
+            <label>Full Name</label>
+            <input placeholder="Aarav Kumar" required />
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" placeholder="you@college.edu" required />
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" required />
+          </div>
+          <div>
+            <label>Graduation Year</label>
+            <input type="number" placeholder="2026" />
+          </div>
+          <div>
+            <label>Primary Skill</label>
+            <input placeholder="Java, React, SQL" />
+          </div>
+          <div>
+            <label>Location</label>
+            <input placeholder="Chennai, IN" />
+          </div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:10px;justify-content:flex-end">
+          <a href="login.html">Have an account?</a>
+          <button class="btn">Create Student Account</button>
+        </div>
+      </form>
+
+      <form id="recruiterForm" style="display:none" onsubmit="event.preventDefault(); location.href='recruiter-dashboard.html';">
+        <div class="grid">
+          <div>
+            <label>Company Name</label>
+            <input placeholder="Zidio Technologies" required />
+          </div>
+          <div>
+            <label>Work Email</label>
+            <input type="email" placeholder="you@company.com" required />
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" required />
+          </div>
+          <div>
+            <label>Role/Designation</label>
+            <input placeholder="HR Manager / Recruiter" />
+          </div>
+          <div>
+            <label>Company Website</label>
+            <input placeholder="https://example.com" />
+          </div>
+          <div>
+            <label>Location</label>
+            <input placeholder="Bengaluru, IN" />
+          </div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:10px;justify-content:flex-end">
+          <a href="login.html">Have an account?</a>
+          <button class="btn">Create Recruiter Account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<script>
+  function switchRole(role){
+    document.getElementById('tabStudent').classList.toggle('active',role==='student');
+    document.getElementById('tabRecruiter').classList.toggle('active',role==='recruiter');
+    document.getElementById('studentForm').style.display = role==='student' ? 'block' : 'none';
+    document.getElementById('recruiterForm').style.display = role==='recruiter' ? 'block' : 'none';
+  }
+</script>
+</body>
+</html>

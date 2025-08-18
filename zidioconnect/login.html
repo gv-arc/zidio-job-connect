@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Login — ZIDIO Connect</title>
+<style>
+  :root{--bg:#0b1020;--card:#121834;--pri:#4c7dff;--txt:#e8ecff;--mut:#a8b0d9}
+  *{box-sizing:border-box} body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 20% -10%,#162056,transparent),var(--bg);color:var(--txt);font-family:system-ui,Segoe UI,Roboto}
+  .wrap{display:grid;place-items:center;min-height:100vh;padding:16px}
+  .card{width:100%;max-width:420px;background:var(--card);border:1px solid #1d2450;border-radius:16px;padding:22px}
+  h1{margin:0 0 6px} p{margin:0 0 16px;color:var(--mut)}
+  label{display:block;margin:10px 0 6px;color:#cfd6ff}
+  input,select{width:100%;padding:12px;border-radius:10px;border:1px solid #273066;background:#0f1533;color:var(--txt)}
+  .row{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:14px}
+  .btn{width:100%;padding:12px;border-radius:10px;border:0;background:var(--pri);color:#fff;font-weight:600;cursor:pointer}
+  .nav{position:fixed;top:10px;left:10px}
+  a{color:#cfd6ff}
+</style>
+</head>
+<body>
+  <a class="nav" href="index.html">← Home</a>
+  <div class="wrap">
+    <form class="card" onsubmit="event.preventDefault(); fakeLogin();">
+      <h1>Welcome back</h1>
+      <p>Sign in to continue</p>
+
+      <label for="role">Login as</label>
+      <select id="role" required>
+        <option value="student">Student</option>
+        <option value="recruiter">Recruiter</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="you@example.com" required />
+
+      <label for="pass">Password</label>
+      <input id="pass" type="password" placeholder="••••••••" required />
+
+      <div class="row">
+        <small><a href="#">Forgot password?</a></small>
+        <small>New here? <a href="signup.html">Create account</a></small>
+      </div>
+
+      <div style="margin-top:16px">
+        <button class="btn" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+
+<script>
+  function fakeLogin(){
+    const role = document.getElementById('role').value;
+    if(role==='student') location.href = 'student-dashboard.html';
+    else if(role==='recruiter') location.href = 'recruiter-dashboard.html';
+    else location.href = 'admin.html';
+  }
+</script>
+</body>
+</html>
